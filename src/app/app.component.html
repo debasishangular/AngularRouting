@@ -1,0 +1,26 @@
+<ul>
+  <!-- <li><a routerLink="/book" routerLinkActive="active">Book</a></li>	   -->
+  <li>
+    <a
+      [routerLink]="[{ outlets: { addbook: ['add'] } }]"
+      routerLinkActive="active"
+      >Add Book</a
+    >
+  </li>
+  <li>
+    <a
+      [routerLink]="[{ outlets: { updatebook: ['update'] } }]"
+      routerLinkActive="active"
+      >Update Book</a
+    >
+  </li>
+  <li><a routerLink="/countries" routerLinkActive="active">Country</a></li>
+  <li><a routerLink="/employees" routerLinkActive="active">Employees</a></li>
+</ul>
+
+<h3 [style.color]="'red'">Router Outlet</h3>
+<router-outlet></router-outlet>
+
+<h3 [style.color]="'red'">Named Router Outlet</h3>
+<router-outlet name="addBook"></router-outlet>
+<router-outlet name="updateBook"></router-outlet>
