@@ -9,9 +9,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AddbooksComponent } from './addbooks/addbooks.component';
 import { UpdatebooksComponent } from './updatebooks/updatebooks.component';
 import { BrowseComponent } from './book/pages/browse/browse.component';
+import { NestedChid1Component } from './addbooks/nested-chid1/nested-chid1.component';
+import { NestedChid2Component } from './addbooks/nested-chid2/nested-chid2.component';
 
 
-// Modules
+ // Modules
  // import { CountryModule } from './country/country.module';
  // import { EmployeeModule } from './employee/employee.module';
 
@@ -22,8 +24,8 @@ import { BrowseComponent } from './book/pages/browse/browse.component';
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-   // CountryModule,
-   // EmployeeModule
+    // CountryModule,
+    // EmployeeModule
 
   ],
   declarations: [
@@ -31,7 +33,9 @@ import { BrowseComponent } from './book/pages/browse/browse.component';
     BookComponent,
     AddbooksComponent,
     UpdatebooksComponent,
-    BrowseComponent
+    BrowseComponent,
+    NestedChid1Component,
+    NestedChid2Component
   ],
   bootstrap: [AppComponent]
 })

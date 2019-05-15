@@ -8,6 +8,8 @@ import { UpdatebooksComponent } from './updatebooks/updatebooks.component';
 
 // Services
 import { CustomPreloadingService } from './custom-preloading.service';
+import { NestedChid1Component } from './addbooks/nested-chid1/nested-chid1.component';
+import { NestedChid2Component } from './addbooks/nested-chid2/nested-chid2.component';
 
 
 
@@ -23,12 +25,17 @@ const routes: Routes = [
     component: BookComponent
   },
   {
-    path: '',
+    path: 'bookAdd',
     component: AddbooksComponent,
-    outlet: 'addBook'
+    outlet: 'addBook',
+    children: [
+      {path: '', redirectTo: 'nested1', pathMatch: 'full'},
+      {path: 'nested1', component: NestedChid1Component},
+      {path: 'nested2', component: NestedChid2Component}
+    ]
   },
   {
-    path: '',
+    path: 'bookUpdate',
     component: UpdatebooksComponent,
     outlet: 'updateBook'
   },
@@ -36,23 +43,35 @@ const routes: Routes = [
     path: 'countries',
    loadChildren: './country/country.module#CountryModule'
      },
-    //  {
-    //   path: 'employees',
-    //   loadChildren: './employee/employee.module#EmployeeModule'
-    //  },
      {
       path: 'employees',
-      data: { preload: true}, // this will be used to determine if we want a
-                               // lazy loaded module to be preloaded
       loadChildren: './employee/employee.module#EmployeeModule'
      },
+    //  {
+    //   path: 'employees',
+    //   data: { preload: true}, // this will be used to determine if we want a
+    //                            // lazy loaded module to be preloaded
+    //   loadChildren: './employee/employee.module#EmployeeModule'
+    //  },
   { path: '**', redirectTo: '' }
 
 
 ];
+
+// Loading all the Modules onDemand
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes,{ enableTracing: true })],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}
+
+
+//Load all the Modules
+
 // @NgModule({
 //   imports: [RouterModule.forRoot(routes,
-//     {preloadingStrategy: PreloadAllModules} // NoPreloading, PreloadAllModules
+//     {preloadingStrategy: PreloadAllModules}
 //    )],
 //   exports: [RouterModule]
 // })
@@ -60,13 +79,14 @@ const routes: Routes = [
 
 //  { enableTracing: true }
 
-// Custom Preloading Startegy
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes,
-    {preloadingStrategy: CustomPreloadingService} // NoPreloading, PreloadAllModules
-   )],
-  exports: [RouterModule]
-})
+// Custom Preloading Startegy-Preload Modules
 
-export class AppRoutingModule {}
+// @NgModule({
+//   imports: [RouterModule.forRoot(routes,
+//     {preloadingStrategy: CustomPreloadingService} // NoPreloading, PreloadAllModules
+//    )],
+//   exports: [RouterModule]
+// })
+
+// export class AppRoutingModule {}

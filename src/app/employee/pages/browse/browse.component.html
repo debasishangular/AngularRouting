@@ -1,8 +1,12 @@
 <p>
  Employee browse Page!
+ Nested Routes
 </p>
+<nav class="navbar navbar-default">
+    <ul class="nav navbar-nav nav-pills">
 <li><a routerLink="/employees/createEmployee" routerLinkActive="active">CreateEmployee</a></li>
 <li><a routerLink="/employees/employeeList" routerLinkActive="active">EmployeeList</a></li>
 <li><a routerLink="/employees/employeeDetail" routerLinkActive="active">EmployeeDetail</a></li>
-
+    </ul>
+</nav>
 <router-outlet></router-outlet>

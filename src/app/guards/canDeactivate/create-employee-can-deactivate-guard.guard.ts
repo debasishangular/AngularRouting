@@ -7,7 +7,8 @@ import { EmployeeCreateComponent } from '../../employee/employee-create/employee
   providedIn: 'root'
 })
 export class CreateEmployeeCanDeactivateGuardGuard implements CanDeactivate<EmployeeCreateComponent> {
-  canDeactivate(component: EmployeeCreateComponent):  boolean {
+  canDeactivate(component: EmployeeCreateComponent)
+  : Observable<boolean> | Promise<boolean> | boolean {
     if (component.createEmployeeForm.dirty) {
       return confirm('Are you sure you want to discard your change?');
     } else {
