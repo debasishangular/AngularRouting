@@ -11,9 +11,6 @@ import { CustomPreloadingService } from './custom-preloading.service';
 import { NestedChid1Component } from './addbooks/nested-chid1/nested-chid1.component';
 import { NestedChid2Component } from './addbooks/nested-chid2/nested-chid2.component';
 
-
-
-
 const routes: Routes = [
   {
     path: '',
