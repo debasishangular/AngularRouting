@@ -45,8 +45,8 @@ const routes: Routes = [
      },
      {
       path: 'employees',
-      loadChildren: './employee/employee.module#EmployeeModule'
-     },
+      loadChildren: './employee/employee.module#EmployeeModule',
+      },
     //  {
     //   path: 'employees',
     //   data: { preload: true}, // this will be used to determine if we want a
@@ -58,16 +58,16 @@ const routes: Routes = [
 
 ];
 
-// Loading all the Modules onDemand
+/*Loading all the Modules onDemand */
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{ enableTracing: true })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
 
 
-//Load all the Modules
+/*Load all the Modules when application gets loaded. */
 
 // @NgModule({
 //   imports: [RouterModule.forRoot(routes,
@@ -77,10 +77,13 @@ export class AppRoutingModule {}
 // })
 // export class AppRoutingModule {}
 
-//  { enableTracing: true }
-
 
 // Custom Preloading Startegy-Preload Modules
+/*
+   if you want to enable the custom preloading Strategy then also enable the
+   route with path "emplyoees" and data: { preload: true},disable the route 
+   "employees" not having data: { preload: true}
+*/ 
 
 // @NgModule({
 //   imports: [RouterModule.forRoot(routes,
