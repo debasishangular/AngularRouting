@@ -58,7 +58,7 @@ const routes: Routes = [
 
 ];
 
-/*Loading all the Modules onDemand */
+/*Loading all the Modules onDemand - Lazy Loading*/
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
@@ -67,7 +67,7 @@ const routes: Routes = [
 export class AppRoutingModule {}
 
 
-/*Load all the Modules when application gets loaded. */
+/*Load all the Modules when application gets loaded.-Eager Loading */
 
 // @NgModule({
 //   imports: [RouterModule.forRoot(routes,
